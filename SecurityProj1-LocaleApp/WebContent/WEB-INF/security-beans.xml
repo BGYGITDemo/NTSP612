@@ -12,7 +12,7 @@
 <security:http use-expressions="true">
    <!-- Sepecify access regstrictions on the urls -->
    <security:intercept-url  pattern="/welcome" access="permitAll"/>
-   <security:intercept-url   pattern="/countries"  access="hasAnyRole('ROLE_ADMIN','ROLE_CUSTOMER','ROLE_VISITOR')"/>
+   <security:intercept-url   pattern="/countries"  access="hasAnyRole('ROLE_ADMIN','ROLE_CUSTOMER','ROLE_GUEST')"/>
    <!-- enable BASIC login -->
 <!--    <security:http-basic/> -->
    <!-- enable form login -->
@@ -30,9 +30,10 @@
       <security:authentication-provider>
          <security:user-service>
             <security:user name="raja"  password="{noop}rani" authorities="ROLE_MANAGER"    disabled="true" locked="true"/>
-            <security:user name="rajesh"  password="{noop}hyd" authorities="ROLE_ADMIN"/>
+            <security:user name="rajesh"  password="{noop}hyd" authorities="ROLE_ADMIN" /> 
             <security:user name="karan"  password="{noop}kiran" authorities="ROLE_CUSTOMER"/>
             <security:user name="lokesh"  password="{noop}delhi" authorities="ROLE_VISITOR"/>
+            <security:user name="deepraj"  password="{noop}up" authorities="ROLE_GUEST"/>
          </security:user-service>
       </security:authentication-provider>
   </security:authentication-manager>
